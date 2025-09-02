@@ -769,26 +769,38 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/U
 
-#include <bits/stdc++.h>
-#define ll long long
-#define All(v) v.begin(),v.end()
-#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-using namespace std;
-
-
-int main()
-{
-    shwa
-
-
-
-    return 0;
-}
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     ll x1, y1; cin >> x1 >> y1;
+//     ll x2, y2; cin >> x2 >> y2;
+//     ll x3, y3; cin >> x3 >> y3;
+//
+//     //// Wrong Answer Because of Division By Zero
+//     //// Transform it Into an Equation Using Cross Product
+//     // ll slop1 = (y2 - y1) / (x2 - x1);
+//     // ll slop2 = (y3 - y1) / (x3 - x1);
+//
+//     ll crossProdcut = (x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1);
+//
+//     if (crossProdcut == 0) cout << "YES\n";
+//     else cout << "NO\n";
+//
+//     return 0;
+// }
 
 // -------------------------------------------------------------------------------------------
 
-//
+// https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/V
 
 // #include <bits/stdc++.h>
 // #define ll long long
@@ -802,10 +814,163 @@ int main()
 // {
 //     shwa
 //
+//     ll x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+//     ll x3, y3, x4, y4; cin >> x3 >> y3 >> x4 >> y4;
 //
+//     ll crossProdcut = (x2 - x1) * (y4 - y3) - (x4 - x3) * (y2 - y1);
+//
+//     if(crossProdcut == 0) cout << "YES\n";
+//     else cout << "NO\n";
 //
 //     return 0;
 // }
 
 // -------------------------------------------------------------------------------------------
 
+// https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/W
+
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+// double distance (double x1, double y1, double x2, double y2) {
+//     return sqrt( pow(x2 - x1, 2) + pow(y2 - y1, 2) );
+// }
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     double x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+//     double x3, y3, x4, y4; cin >> x3 >> y3 >> x4 >> y4;
+//
+//     double center_x1 = (x1 + x2) * 0.5; double center_y1 = (y1 + y2) * 0.5;
+//     double center_x2 = (x3 + x4) * 0.5; double center_y2 = (y3 + y4) * 0.5;
+//
+//     double distance_between_centers = distance(center_x1, center_y1, center_x2, center_y2);
+//
+//     double r1 = distance(x1, y1, x2, y2) * 0.5;
+//     double r2 = distance(x3, y3, x4, y4) * 0.5;
+//
+//     double rr = r1 + r2;
+//
+//     if (distance_between_centers > rr) cout << "NO\n";
+//     else cout << "YES\n";
+//
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------
+
+// https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/X
+
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     double x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+//     double x3, y3, x4, y4; cin >> x3 >> y3 >> x4 >> y4;
+//
+//     double min_x = min(x1, min(x2, min(x3, x4)));
+//     double max_x = max(x1, max(x2, max(x3, x4)));
+//
+//     double min_y = min(y1, min(y2, min(y3, y4)));
+//     double max_y = max(y1, max(y2, max(y3, y4)));
+//
+//     int T; cin >> T;
+//     while (T--) {
+//         double xi, yi; cin >> xi >> yi;
+//
+//         if (xi >= min_x && xi <= max_x && yi >= min_y && yi <= max_y) cout << "YES\n";
+//         else cout << "NO\n";
+//     }
+//
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------
+
+// https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/Y
+
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     int T; cin >> T;
+//     int cnt = 1;
+//     while (cnt <= T) {
+//         int N; cin >> N;
+//         ll x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+//
+//         ll max_x1 = x1, max_y1 = y1, min_x2 = x2, min_y2 = y2;
+//
+//         for (int i = 1; i < N; i++) {
+//             cin >> x1 >> y1 >> x2 >> y2;
+//
+//             max_x1 = max(max_x1, x1);
+//             max_y1 = max(max_y1, y1);
+//
+//             min_x2 = min(min_x2, x2);
+//             min_y2 = min(min_y2, y2);
+//         }
+//
+//         if (min_x2 > max_x1 && min_y2 > max_y1)
+//             cout << "Case #"<< cnt << ": " << (min_x2 - max_x1) * (min_y2 - max_y1) << endl;
+//         else cout << "Case #"<< cnt << ": " << 0 << endl;
+//
+//         cnt++;
+//     }
+//
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------
+
+// https://codeforces.com/group/MWSDmqGsZm/contest/223338/problem/Z
+
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     ll R, S; cin >> R >> S;
+//
+//     // Diameters
+//     ll circle_D = R * 2;
+//     ll square_D = sqrt(pow(S, 2) + pow(S, 2));
+//
+//     if (circle_D <= S) cout << "Square";
+//     else if (circle_D > square_D) cout << "Circle";
+//     else cout << "Complex";
+//
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------
