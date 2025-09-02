@@ -12,4 +12,5 @@ add_executable(NewcomersSheet "Sheet-1-(DataTypes-Conditions).cpp"
         Contest-1.cpp
     Contest-2.cpp
     Contest-3.cpp
+        "Sheet-7-(Recursion).cpp"
 )
