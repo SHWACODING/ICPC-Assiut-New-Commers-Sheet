@@ -493,29 +493,29 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/O
 
-#include <bits/stdc++.h>
-#define ll long long
-#define All(v) v.begin(),v.end()
-#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-using namespace std;
-
-ll R_Fibonacci(ll N) {
-    if (N == 1) return 0;
-    if (N == 2) return 1;
-    return R_Fibonacci(N - 2) + R_Fibonacci(N - 1);
-}
-
-int main()
-{
-    shwa
-
-    int N; cin >> N;
-
-    cout << R_Fibonacci(N) << endl;
-
-    return 0;
-}
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+// ll R_Fibonacci(ll N) {
+//     if (N == 1) return 0;
+//     if (N == 2) return 1;
+//     return R_Fibonacci(N - 2) + R_Fibonacci(N - 1);
+// }
+//
+// int main()
+// {
+//     shwa
+//
+//     int N; cin >> N;
+//
+//     cout << R_Fibonacci(N) << endl;
+//
+//     return 0;
+// }
 
 // -------------------------------------------------------------------------------------------
 
@@ -528,12 +528,19 @@ int main()
 //
 // using namespace std;
 //
+// ll R_Log (ll N) {
+//     if (N < 2) return 0;
+//
+//     return 1 + R_Log(N/2);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     ll N; cin >> N;
 //
+//     cout << R_Log(N) << endl;
 //
 //     return 0;
 // }
@@ -542,22 +549,22 @@ int main()
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/Q
 
-// #include <bits/stdc++.h>
-// #define ll long long
-// #define All(v) v.begin(),v.end()
-// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-//
-// using namespace std;
-//
-//
-// int main()
-// {
-//     shwa
-//
-//
-//
-//     return 0;
-// }
+#include <bits/stdc++.h>
+#define ll long long
+#define All(v) v.begin(),v.end()
+#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+
+using namespace std;
+
+
+int main()
+{
+    shwa
+
+
+
+    return 0;
+}
 
 // -------------------------------------------------------------------------------------------
 
