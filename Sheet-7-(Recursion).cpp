@@ -549,22 +549,31 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/Q
 
-#include <bits/stdc++.h>
-#define ll long long
-#define All(v) v.begin(),v.end()
-#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-using namespace std;
-
-
-int main()
-{
-    shwa
-
-
-
-    return 0;
-}
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+// ll R_Relation (int N) {
+//     if (N == 1) return 1;
+//
+//     if (!(N & 1)) return 1 + R_Relation(N/2);
+//
+//     return 1 + R_Relation(3*N+1);
+// }
+//
+// int main()
+// {
+//     shwa
+//
+//     int N; cin >> N;
+//
+//     cout << R_Relation(N);
+//
+//     return 0;
+// }
 
 // -------------------------------------------------------------------------------------------
 
@@ -577,12 +586,24 @@ int main()
 //
 // using namespace std;
 //
+// bool R_Palindrome (int i, int N, vector<int>&A) {
+//     if (i >= N) return true;
+//
+//     if (A[i] != A[N]) return false;
+//
+//     return R_Palindrome(i+1, N-1, A);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     int N; cin >> N;
+//     vector<int> A(N);
+//     for (auto &Ai: A) cin >> Ai;
 //
+//     if (R_Palindrome(0, N-1, A)) cout << "YES\n";
+//     else cout << "NO\n";
 //
 //     return 0;
 // }
@@ -598,12 +619,23 @@ int main()
 //
 // using namespace std;
 //
+// ll R_Sum (int i, int N, vector<ll>&A) {
+//     if (i == N-1) return A[i];
+//     return A[i] + R_Sum(i+1, N, A);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     int N; cin >> N;
+//     vector<ll> A(N);
+//     for (auto &Ai: A) cin >> Ai;
 //
+//     ll Sum = R_Sum(0, N, A);
+//     double Avg = (double)Sum / N;
+//
+//     cout << fixed << setprecision(6) << Avg;
 //
 //     return 0;
 // }
@@ -619,12 +651,37 @@ int main()
 //
 // using namespace std;
 //
+// // C(n, r)={
+// //     1                     if r=0 or r=n
+// //     C(n−1,r−1)+C(n−1,r)   otherwise
+// // }
+//
+// ll dp[35][35];
+//
+// ll R_nCr (int N, int R) {
+//     if (R == 0 || R == N) return 1;
+//
+//     if (dp[N][R] != -1) return dp[N][R];
+//
+//     return dp[N][R] =  R_nCr(N-1, R-1) + R_nCr(N-1, R);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     int N, R; cin >> N >> R;
 //
+//     if (R > N) {
+//         cout << 0 << endl;
+//         return 0;
+//     }
+//
+//     int r = min(R, N - R);
+//
+//     memset(dp, -1, sizeof(dp));
+//
+//     cout << R_nCr(N, r) << endl;
 //
 //     return 0;
 // }
