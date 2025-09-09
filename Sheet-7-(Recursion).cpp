@@ -690,22 +690,46 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/U
 
-// #include <bits/stdc++.h>
-// #define ll long long
-// #define All(v) v.begin(),v.end()
-// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-//
-// using namespace std;
-//
-//
-// int main()
-// {
-//     shwa
-//
-//
-//
-//     return 0;
-// }
+#include <bits/stdc++.h>
+#define ll long long
+#define All(v) v.begin(),v.end()
+#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+
+using namespace std;
+
+int N, W;
+vector<int> weights, values;
+
+int R_Knapsack (int i, int capacity) {
+    if (i == N) return 0;
+
+    // Skip
+    int skip = R_Knapsack(i+1, capacity);
+
+    // Take
+    int take=0;
+    if (weights[i] <= capacity)
+        take = values[i] + R_Knapsack(i+1, capacity - weights[i]);
+
+    return max(skip, take);
+}
+
+int main()
+{
+    shwa
+
+    cin >> N >> W;
+
+    weights.resize(N);
+    values.resize(N);
+
+    for (int i = 0; i < N; ++i) cin >> weights[i] >> values[i];
+
+    cout << R_Knapsack(0, W) << endl;
+
+
+    return 0;
+}
 
 // -------------------------------------------------------------------------------------------
 
@@ -718,12 +742,28 @@
 //
 // using namespace std;
 //
+// ll N, X;
+// vector<ll> A(21);
+//
+// bool R_Expression (ll sum, ll i) {
+//     if (i == N) return sum == X;
+//
+//     bool way1 = R_Expression(sum+A[i], i+1);
+//     bool way2 = R_Expression(sum-A[i], i+1);
+//
+//     return way1 || way2;
+// }
+//
 //
 // int main()
 // {
 //     shwa
 //
+//     cin >> N >> X;
+//     for (int i = 0; i < N; ++i) cin >> A[i];
 //
+//     if (R_Expression(A[0], 1)) cout << "YES\n";
+//     else cout << "NO\n";
 //
 //     return 0;
 // }
@@ -739,12 +779,25 @@
 //
 // using namespace std;
 //
+// ll N;
+//
+// bool R_Reach (ll num) {
+//     if (N < num) return false;
+//     else if (N == num) return true;
+//     else return R_Reach(num*10) || R_Reach(num*20);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     int T; cin >> T;
+//     while (T--) {
+//         cin >> N;
 //
+//         if (R_Reach(1)) cout << "YES\n";
+//         else cout << "NO\n";
+//     }
 //
 //     return 0;
 // }
@@ -760,12 +813,31 @@
 //
 // using namespace std;
 //
+// int raw, col;
+// vector<vector<int>> Matrix(11, vector<int>(11));
+//
+// int R_Path (int start, int end) {
+//     if (start == raw-1 && end == col-1) return Matrix[start][end];
+//     else if (start > raw-1 || end > col-1) return -INT_MIN;
+//
+//     int right = R_Path(start, end+1);
+//     int down = R_Path(start+1, end);
+//
+//     return Matrix[start][end] + max(right, down);
+// }
+//
 //
 // int main()
 // {
 //     shwa
 //
+//     cin >> raw >> col;
 //
+//     for (int i = 0; i < raw; ++i)
+//         for (int j = 0; j < col; ++j)
+//             cin >> Matrix[i][j];
+//
+//     cout << R_Path(0, 0) << endl;
 //
 //     return 0;
 // }
@@ -781,12 +853,21 @@
 //
 // using namespace std;
 //
+// int n1, n2;
+//
+// int R_Ways (int n) {
+//     if (n >= n2) return n == n2;
+//
+//     return R_Ways(n+1) + R_Ways(n+2) + R_Ways(n+3);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     cin >> n1 >> n2;
 //
+//     cout << R_Ways(n1);
 //
 //     return 0;
 // }
@@ -802,12 +883,25 @@
 //
 // using namespace std;
 //
+// void R_Prefix_Max (int i, int N, vector<ll>&A, ll curr_mx) {
+//     if (i >= N) return;
+//
+//     curr_mx = max(A[i], curr_mx);
+//
+//     cout << curr_mx << " ";
+//
+//     R_Prefix_Max(i+1, N, A, curr_mx);
+// }
 //
 // int main()
 // {
 //     shwa
 //
+//     int N; cin >> N;
+//     vector<ll> A(N);
+//     for (auto & Ai: A) cin >> Ai;
 //
+//     R_Prefix_Max(0, N, A, LLONG_MIN);
 //
 //     return 0;
 // }
