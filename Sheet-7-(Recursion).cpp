@@ -690,46 +690,46 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/U
 
-#include <bits/stdc++.h>
-#define ll long long
-#define All(v) v.begin(),v.end()
-#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-using namespace std;
-
-int N, W;
-vector<int> weights, values;
-
-int R_Knapsack (int i, int capacity) {
-    if (i == N) return 0;
-
-    // Skip
-    int skip = R_Knapsack(i+1, capacity);
-
-    // Take
-    int take=0;
-    if (weights[i] <= capacity)
-        take = values[i] + R_Knapsack(i+1, capacity - weights[i]);
-
-    return max(skip, take);
-}
-
-int main()
-{
-    shwa
-
-    cin >> N >> W;
-
-    weights.resize(N);
-    values.resize(N);
-
-    for (int i = 0; i < N; ++i) cin >> weights[i] >> values[i];
-
-    cout << R_Knapsack(0, W) << endl;
-
-
-    return 0;
-}
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+// int N, W;
+// vector<int> weights, values;
+//
+// int R_Knapsack (int i, int capacity) {
+//     if (i == N) return 0;
+//
+//     // Skip
+//     int skip = R_Knapsack(i+1, capacity);
+//
+//     // Take
+//     int take=0;
+//     if (weights[i] <= capacity)
+//         take = values[i] + R_Knapsack(i+1, capacity - weights[i]);
+//
+//     return max(skip, take);
+// }
+//
+// int main()
+// {
+//     shwa
+//
+//     cin >> N >> W;
+//
+//     weights.resize(N);
+//     values.resize(N);
+//
+//     for (int i = 0; i < N; ++i) cin >> weights[i] >> values[i];
+//
+//     cout << R_Knapsack(0, W) << endl;
+//
+//
+//     return 0;
+// }
 
 // -------------------------------------------------------------------------------------------
 
