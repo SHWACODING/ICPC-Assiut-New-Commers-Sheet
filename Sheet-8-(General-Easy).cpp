@@ -295,7 +295,22 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
 //
+//     vector<int> lucky = {
+//         4, 7, 44, 47, 74, 77,
+//         444, 447, 474, 477,
+//         744, 747, 774, 777
+//     };
+//
+//     for (auto &x: lucky) {
+//         if (n % x == 0) {
+//             cout << "YES";
+//             return 0;
+//         }
+//     }
+//
+//     cout << "NO";
 //
 //     return 0;
 // }
@@ -311,12 +326,42 @@
 //
 // using namespace std;
 //
+// // Precompute Fibonacci and primality
+// const int MAX_N = 50;
+// long long fib[MAX_N + 1];
+// bool is_prime_cache[MAX_N + 1];
 //
-// int main()
-// {
+// bool is_prime(long long n) {
+//     if (n < 2) return false;
+//     if (n == 2) return true;
+//     if (n % 2 == 0) return false;
+//     for (long long i = 3; i * i <= n; i += 2)
+//         if (n % i == 0) return false;
+//     return true;
+// }
+//
+// void precompute() {
+//     fib[1] = 0;
+//     fib[2] = 1;
+//     for (int i = 3; i <= MAX_N; ++i)
+//         fib[i] = fib[i - 1] + fib[i - 2];
+//
+//     for (int i = 1; i <= MAX_N; ++i)
+//         is_prime_cache[i] = is_prime(fib[i]);
+// }
+//
+// int main() {
 //     shwa
 //
+//     precompute();
 //
+//     int T;
+//     cin >> T;
+//     while (T--) {
+//         int N;
+//         cin >> N;
+//         cout << (is_prime_cache[N] ? "prime" : "not prime") << '\n';
+//     }
 //
 //     return 0;
 // }
@@ -337,7 +382,26 @@
 // {
 //     shwa
 //
+//     int N; cin >> N;
 //
+//     vector<int> cards(N);
+//     for (auto &ci: cards) cin >> ci;
+//
+//     int score[2] {0, 0};
+//     int turn = 0;
+//
+//     int left=0, right=N-1;
+//     while (left <= right) {
+//         int pick;
+//         if (cards[left] > cards[right]) pick = cards[left++];
+//         else pick = cards[right--];
+//
+//         score[turn] += pick;
+//
+//         turn ^= 1;
+//     }
+//
+//     cout << score[0] << " " << score[1];
 //
 //     return 0;
 // }
@@ -358,7 +422,12 @@
 // {
 //     shwa
 //
+//     vector<int> X(3);
+//     for (auto &Xi: X) cin >> Xi;
 //
+//     sort(All(X));
+//
+//     cout << (X[1]-X[0]) + (X[2]-X[1]);
 //
 //     return 0;
 // }
@@ -379,7 +448,38 @@
 // {
 //     shwa
 //
+//     int r, c; cin >> r >> c;
 //
+//     vector<string> cake(r);
+//     for (int i = 0; i < r; ++i) cin >> cake[i];
+//
+//     vector<bool> cleanRow(r, true);
+//     vector<bool> cleanCol(c, true);
+//
+//     for (int i = 0; i < r; ++i) {
+//         for (int j = 0; j < c; ++j) {
+//             if (cake[i][j] == 'S') {
+//                 cleanRow[i] = false;
+//                 cleanCol[j] = false;
+//             }
+//         }
+//     }
+//
+//     int eaten=0;
+//
+//     for (int i = 0; i < r; ++i) {
+//         if (cleanRow[i]) eaten += c;
+//     }
+//
+//     for (int j = 0; j < c; ++j) {
+//         if (cleanCol[j]) {
+//             for (int i = 0; i < r; ++i) {
+//                 if (!cleanRow[i]) eaten++;
+//             }
+//         }
+//     }
+//
+//     cout << eaten;
 //
 //     return 0;
 // }
@@ -400,7 +500,19 @@
 // {
 //     shwa
 //
+//     int n, x; cin >> n >> x;
 //
+//     ll packs=x; int c=0;
+//
+//     while (n--) {
+//         char s; int d; cin >> s >> d;
+//
+//         if (s == '+') packs += d;
+//         else if (s == '-' && packs >= d) packs -= d;
+//         else c++;
+//     }
+//
+//     cout << packs << " " << c;
 //
 //     return 0;
 // }
@@ -421,7 +533,20 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
 //
+//     int c=0, p=0;
+//
+//     for (int i = 0; i < n; ++i) {
+//         int x; cin >> x;
+//
+//         if (x == -1) {
+//             if (p) p--;
+//             else c++;
+//         } else p += x;
+//     }
+//
+//     cout << c;
 //
 //     return 0;
 // }
@@ -442,7 +567,18 @@
 // {
 //     shwa
 //
+//     string S; cin >> S;
 //
+//     int curr=0, ans=0;
+//
+//     for (auto & C:  S) {
+//         int next = C - 'a';
+//         int diff = abs(curr - next);
+//         ans += min(diff, 26-diff);
+//         curr = next;
+//     }
+//
+//     cout << ans << endl;
 //
 //     return 0;
 // }
