@@ -599,7 +599,33 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
 //
+//     vector<int> a(n);
+//     for (auto &ai : a) cin >> ai;
+//
+//     int maxVal = *max_element(All(a));
+//     int idxMax = -1;
+//     for (int i = 0; i < n; i++) {
+//         if (a[i] == maxVal) {
+//             idxMax = i;
+//             break;
+//         }
+//     }
+//
+//     int minVal = *min_element(All(a));
+//     int idxMin = -1;
+//     for (int i = n - 1; i >= 0; i--) {
+//         if (a[i] == minVal) {
+//             idxMin = i;
+//             break;
+//         }
+//     }
+//
+//     int moves = idxMax + (n - 1 - idxMin);
+//     if (idxMax > idxMin) moves--;
+//
+//     cout << moves << endl;
 //
 //     return 0;
 // }
@@ -620,7 +646,29 @@
 // {
 //     shwa
 //
+//     int n, k; cin >> n >> k;
 //
+//     vector<char> v(k+1);
+//     for (int i = 0; i <= k; ++i) v[i] = char('0' + i);
+//
+//     int c=0;
+//
+//     while (n--) {
+//         string s; cin >> s;
+//
+//         bool found=true;
+//
+//         for (auto &c : v) {
+//             if (s.find(c) == string::npos) {
+//                 found=false;
+//                 break;
+//             }
+//         }
+//
+//         if (found) c++;
+//     }
+//
+//     cout << c << endl;
 //
 //     return 0;
 // }
@@ -641,7 +689,19 @@
 // {
 //     shwa
 //
+//     string S; cin >> S;
 //
+//     string New_S = "";
+//
+//     for (int i = 0; i < S.length(); ++i) {
+//         if (S[i] != '+') New_S += S[i];
+//     }
+//
+//     sort(All(New_S));
+//
+//     for (int i = 0; i < New_S.length(); ++i) {
+//         cout << New_S[i] << (i == New_S.length() - 1 ? ' ' : '+');
+//     }
 //
 //     return 0;
 // }
@@ -662,7 +722,15 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
 //
+//
+//     if (n > 0) cout << n;
+//     else {
+//         int lst_1 = n / 10;
+//         int lst_2 = (n / 100) * 10 + (n % 10);
+//         cout << max({n, lst_1, lst_2});
+//     }
 //
 //     return 0;
 // }
@@ -683,7 +751,19 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
 //
+//     vector<pair<int, int>> rates(n, {4130, 4130});
+//
+//     for (int i = 0; i < n; ++i) cin >> rates[i].first >> rates[i].second;
+//
+//     for (int i = 0; i < n; ++i)
+//         if (rates[i].first != rates[i].second) { cout << "rated"; return 0; }
+//
+//     for (int i = 1; i < n; ++i)
+//         if (rates[i-1].first < rates[i].first) { cout << "unrated"; return 0; }
+//
+//     cout << "maybe";
 //
 //     return 0;
 // }
@@ -704,7 +784,10 @@
 // {
 //     shwa
 //
+//     string s1, s2; cin >> s1 >> s2;
 //
+//     if (s1 == s2) cout << -1;
+//     else cout << max(s1.length(), s2.length());
 //
 //     return 0;
 // }
@@ -721,11 +804,42 @@
 // using namespace std;
 //
 //
-// int main()
-// {
+// bool Is_Prime (int n) {
+//     if (n < 2) return false;
+//     if (n == 2) return true;
+//     if (n % 2 == 0) return false;
+//     for (int i = 3; i*i <= n; i += 2)
+//         if (n % i == 0) return false;
+//     return true;
+// }
+//
+// vector<int> Prime_51 (int n) {
+//     vector<int> res;
+//
+//     for (int i = 2; i <= n; ++i)
+//         if (Is_Prime(i)) res.push_back(i);
+//
+//     return res;
+// }
+//
+//
+// int main() {
 //     shwa
 //
+//     int x, y; cin >> x >> y;
 //
+//     if (!Is_Prime(x) || !Is_Prime(y)) { cout << "NO"; return 0; }
+//
+//     vector<int> primes = Prime_51(51);
+//
+//     bool flag = false;
+//
+//     for (int i = 0; i < primes.size(); ++i) {
+//         if (primes[i] == x && primes[i+1] == y) flag=true;
+//     }
+//
+//     if (flag) cout << "YES";
+//     else cout << "NO";
 //
 //     return 0;
 // }
@@ -746,7 +860,22 @@
 // {
 //     shwa
 //
+//     int n; cin >> n;
+//     vector<int> ones, twos, threes;
 //
+//     for (int i = 1; i <= n; i++) {
+//         int T; cin >> T;
+//
+//         if (T == 1) ones.push_back(i);
+//         else if (T == 2) twos.push_back(i);
+//         else threes.push_back(i);
+//     }
+//
+//     int w = min({(int)ones.size(), (int)twos.size(), (int)threes.size()});
+//     cout << w << endl;
+//
+//     for (int i = 0; i < w; i++)
+//         cout << ones[i] << " " << twos[i] << " " << threes[i] << "\n";
 //
 //     return 0;
 // }
@@ -755,21 +884,39 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223206/problem/Z
 
-// #include <bits/stdc++.h>
-// #define ll long long
-// #define All(v) v.begin(),v.end()
-// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-//
-// using namespace std;
-//
-//
-// int main()
-// {
-//     shwa
-//
-//
-//
-//     return 0;
-// }
+#include <bits/stdc++.h>
+#define ll long long
+#define All(v) v.begin(),v.end()
+#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+
+using namespace std;
+
+
+int main()
+{
+    shwa
+
+    int n; cin >> n;
+
+    string S; cin >> S;
+
+    string ans="";
+
+    while (n--) {
+        if (n % 2 != 0) {
+            ans += S[0];
+            S.erase(S.begin());
+        } else {
+            ans = S[0] + ans;
+            S.erase(S.begin());
+        }
+    }
+
+    reverse(All(ans));
+
+    cout << ans << endl;
+
+    return 0;
+}
 
 // -------------------------------------------------------------------------------------------
