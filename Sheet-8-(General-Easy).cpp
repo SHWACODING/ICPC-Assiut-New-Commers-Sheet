@@ -884,39 +884,39 @@
 
 // https://codeforces.com/group/MWSDmqGsZm/contest/223206/problem/Z
 
-#include <bits/stdc++.h>
-#define ll long long
-#define All(v) v.begin(),v.end()
-#define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
-
-using namespace std;
-
-
-int main()
-{
-    shwa
-
-    int n; cin >> n;
-
-    string S; cin >> S;
-
-    string ans="";
-
-    while (n--) {
-        if (n % 2 != 0) {
-            ans += S[0];
-            S.erase(S.begin());
-        } else {
-            ans = S[0] + ans;
-            S.erase(S.begin());
-        }
-    }
-
-    reverse(All(ans));
-
-    cout << ans << endl;
-
-    return 0;
-}
+// #include <bits/stdc++.h>
+// #define ll long long
+// #define All(v) v.begin(),v.end()
+// #define shwa ios_base::sync_with_stdio(false);cin.tie(NULL);
+//
+// using namespace std;
+//
+//
+// int main()
+// {
+//     shwa
+//
+//     int n; cin >> n;
+//
+//     string S; cin >> S;
+//
+//     string ans="";
+//
+//     while (n--) {
+//         if (n % 2 != 0) {
+//             ans += S[0];
+//             S.erase(S.begin());
+//         } else {
+//             ans = S[0] + ans;
+//             S.erase(S.begin());
+//         }
+//     }
+//
+//     reverse(All(ans));
+//
+//     cout << ans << endl;
+//
+//     return 0;
+// }
 
 // -------------------------------------------------------------------------------------------
